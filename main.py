@@ -6,7 +6,7 @@ matplotlib.use('TkAgg')
 
 import matplotlib.pyplot as plt
 
-import perceptron
+from perceptron import Perceptron
 
 DATASET_IRIS_PATH = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
 
@@ -14,6 +14,9 @@ print("esercizio 1")
 print("loading iris dataset from" , DATASET_IRIS_PATH)
 
 df = pd.read_csv(DATASET_IRIS_PATH , header=None , encoding='utf-8')
+
+print("dataset loaded")
+print("dataset has " , df.shape[0] , " examples")
 
 assert df.shape[0] > 0 , 'incorrect dataset loaded'
 
@@ -34,7 +37,7 @@ plt.legend(loc="upper left")
 
 plt.show()
 
-ppn = perceptron.Perceptron(X.shape[0])
+ppn = Perceptron(X.shape[0])
 
 ppn.fit(X , y)
 

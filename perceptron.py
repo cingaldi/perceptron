@@ -1,10 +1,10 @@
 import numpy as np
+from neuron import Neuron
 
-class Perceptron(object):
+class Perceptron(Neuron):
 
     def __init__(self , dim):
-        self._dim = dim
-        self._w = [0 for i in range(dim+1)]
+        super().__init__(dim)
 
     def fit (self , X , Y , eta = 0.1 , iterations = 50 , random_seed = 1):
 
