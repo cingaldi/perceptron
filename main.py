@@ -16,7 +16,7 @@ print("loading iris dataset from" , DATASET_IRIS_PATH)
 df = pd.read_csv(DATASET_IRIS_PATH , header=None , encoding='utf-8')
 
 print("dataset loaded")
-print("dataset has " , df.shape[0] , " examples")
+print("dataset has" , df.shape[0] , "examples")
 
 assert df.shape[0] > 0 , 'incorrect dataset loaded'
 

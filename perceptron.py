@@ -24,11 +24,7 @@ class Perceptron(Neuron):
             
             #for each example provided
             for x_i , y_i in zip(X , Y):
-
-                #update the weight calculating error with ith example
-                deltaW = eta*(y_i - self.predict(x_i))
-                self._w[0] += deltaW
-                self._w[1:] += deltaW * x_i
+                self.__updateStep(x_i , y_i , eta)
         
         return self
 
@@ -36,3 +32,10 @@ class Perceptron(Neuron):
     def predict (self , X):
         z = np.dot(X , self._w[1:]) + self._w[0]
         return np.where(z >= 0 , 1 , -1 )
+
+    def __updateStep(self , x_i , y_i , eta):
+
+        #update the weight calculating error with ith example
+        deltaW = eta*(y_i - self.predict(x_i))
+        self._w[0] += deltaW
+        self._w[1:] += deltaW * x_i
